@@ -152,8 +152,9 @@ func shouldIgnore(v reflect.Value, ignoreEmpty bool) bool {
 		return v.String() == ""
 	case reflect.Ptr, reflect.Slice, reflect.Map, reflect.Interface, reflect.Chan:
 		return v.IsNil()
-	case reflect.Bool:
-		return !v.Bool()
+	// 	todo : probably not a good idea to ignore false.
+	// case reflect.Bool:
+	// 	return !v.Bool()
 	}
 	return false
 }
